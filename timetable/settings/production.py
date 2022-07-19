@@ -5,7 +5,7 @@ import os, dj_database_url
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', False)
+DEBUG = os.getenv('DEBUG')
 
 MIDDLEWARE.insert(2, "whitenoise.middleware.WhiteNoiseMiddleware")
 # Database
