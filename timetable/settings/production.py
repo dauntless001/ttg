@@ -7,8 +7,11 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', False)
 
+MIDDLEWARE.insert(2, "whitenoise.middleware.WhiteNoiseMiddleware")
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+
+
 
 DATABASES['default'] = dj_database_url(
     url=os.getenv('DATABASE_URL'), conn_max_age=600
