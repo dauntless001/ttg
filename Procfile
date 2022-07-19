@@ -1,1 +1,1 @@
-web: gunicorn timetable.wsgi:application
+web: gunicorn timetable.wsgi --preload --log-file -
