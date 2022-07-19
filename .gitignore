@@ -1,0 +1,4 @@
+*.db
+sample.py
+__pycache__/
+*.pyc

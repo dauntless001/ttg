@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static i18n %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+        <meta name="description" content="Smarthr - Bootstrap Admin Template">
+		<meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
+        <meta name="author" content="Dreamguys - Bootstrap Admin Template">
+        <meta name="robots" content="noindex, nofollow">
+        <title>{% block title %}Dashboard{% endblock title %} - Timetable Generator</title>
+        {% include 'partials/_stylesheet.html' %}
+    </head>
+	
+    <body>
+		<!-- Main Wrapper -->
+        <div class="main-wrapper">
+		
+			<!-- Header -->
+            {% include 'partials/_navbar.html' %}
+			<!-- /Header -->
+			
+			<!-- Sidebar -->
+            {% include 'partials/_sidebar.html' %}
+			<!-- /Sidebar -->
+			
+			<!-- Page Wrapper -->
+            
+            <div class="page-wrapper">
+                {% include 'partials/_messages.html' %}
+                {% block content%}
+
+                {% endblock content %}
+            </div>
+			<!-- /Page Wrapper -->
+			
+        </div>
+		<!-- /Main Wrapper -->
+		
+		{% include 'partials/_script.html' %}
+		{% block extra_script %}
+        
+        {% endblock extra_script %}
+    </body>
+</html>

@@ -1,0 +1,26 @@
+{% extends "partials/_auth_layout.html" %}
+
+{% load i18n static %}
+{% load account socialaccount %}
+
+{% block title %}{% trans "Sign Out" %}{% endblock %}
+
+{% block body %}
+<div class="account-box">
+  <div class="account-wrapper">
+    <h3 class="account-title">{% trans 'Sign Out' %}</h3>
+    <p class="account-subtitle">Are you sure you want to sign out?</p>
+
+    <!-- Account Form -->
+    <form method="POST" action="{% url 'account_logout' %}">
+      {% include "partials/_messages.html" %}
+      {% include "partials/_form_errors.html" %}
+      <div class="form-group text-center">
+        <button class="btn btn-primary account-btn" type="submit">{% trans 'Sign Out' %}</button>
+      </div>
+    </form>
+    <!-- /Account Form -->
+
+  </div>
+</div>
+{% endblock body %}
