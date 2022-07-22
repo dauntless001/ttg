@@ -10,25 +10,29 @@ The assignment is to find generic solution that will facilitate generating timet
 
 
 # Constraints
-Resources can not overlap timewise
-No teacher can hold two classes at the same time
-No group can listen for two classes at the same time
-No classroom can receive two classes at the same time
-Note: under the term "same time" is not meant only at the beginning of the class, it should be taken into account the duration of the class. If the resource is busy at the moment T1 and the class lasts t1, then the resource can only be re-occupied at the moment T2 = T1 + t1.
+- A department cannot have more than 14 courses per semester
+- A teacher only teaches one course per week
+- Maximum of 4 lectures per day
+- Class should take place in one of the allowed classrooms
 
-Class should take place in one of the allowed classrooms
-If the subject has several forms of teaching, the preferred order for each group is the lectures, exercises, and laboratory exercises.
-Constraints 1 and 2 must be met, while the 3rd limit is "soft" and allowed to be violated.
-Additional criteria for estimating solution (used also for cost function):
 
 # Solution
-The algorithm for the timetable is represented as table with its columns as classrooms and rows allowed times for classes, while the elements of the table are the specific class held in proper classroom and given time. Table is a matrix with dimensions 60 x number of classrooms, where 60 corresponds to total number of possible times during the week (5 workdays, 12 hours a day).
+The algorithm for the timetable is represented as table with its columns as classrooms and rows allowed times for classes, while the elements of the table are the specific class held in proper classroom and given time. Table is a an object of days, lectures, lecturers and rooms, where the object corresponds to total number of possible times during the week (5 workdays, 8 hours a day).
 
 
 # Algorithm
 The algorithm consists of the following steps:
+- Filter department's courses by the specific semester
+- Assign rooms to the lectures if no room is assigned to it based its capacity
+- pick 4 courses for each level for each day and store into an object
+- convert the object in JSON for web visualization
+- store the JSON data into the database with other necessary informations such as department, semester, date created ...
 
 
+# Road blocks faced during development & how we solved them
+- Sqlite3 does not support json field from django models so we used a 3rd party library (django-jsonfield) to store json field in the database
+
+- 
 
 
 ## Useful links
@@ -74,7 +78,7 @@ python manage.py runserver
 
 ## Contribution
 
-Pick a ticket on the [Gitlab repository](https://gitlab.com/tushortz/softskillspace). If you haven't cloned the repository, use the command to clone from the terminal
+If you haven't cloned the repository, use the command to clone from the terminal
 
 ```sh
 git clone https://gitlab.com/tushortz/softskillspace
